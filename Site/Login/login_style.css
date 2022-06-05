@@ -1,0 +1,48 @@
+#em_cima{
+    background-color: rgb(202, 107, 250);
+}
+
+#botao_menu{
+    color: blue;
+}
+
+.nome_site{
+    color: black;
+}
+
+.container{
+    height: 100px;
+    width: 300px;
+    position: static;
+}
+
+.title{
+    color: rgb(202, 107, 250) ;
+}
+.subtitle{
+    margin: 10%;
+}
+
+#email{
+    width: 35%;
+}
+
+#senha{
+    width: 35%;
+}
+
+#botao_login{
+    width: 35%;
+    background-color: rgb(202, 107, 250);
+}
+#botao_criar{
+    width: 35%;
+    background-color: rgb(202, 107, 250);
+}
+
+#login_style{
+    margin-left: 50px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+}
