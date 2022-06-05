@@ -1,5 +1,5 @@
 #em_cima{
-    background-color: rgb(202, 107, 250);
+    background-color: rgb(51, 180, 255);
 }
 
 #botao_menu{
@@ -17,7 +17,7 @@
 }
 
 .title{
-    color: rgb(202, 107, 250) ;
+    color: rgb(51, 180, 255);
     text-align: center;
 }
 .subtitle{
@@ -34,11 +34,11 @@
 
 #botao_login{
     width: 35%;
-    background-color: rgb(202, 107, 250);
+    background-color: rgb(51, 180, 255);
 }
 #botao_criar{
     width: 35%;
-    background-color: rgb(202, 107, 250);
+    background-color: rgb(51, 180, 255);
 }
 
 .field{
