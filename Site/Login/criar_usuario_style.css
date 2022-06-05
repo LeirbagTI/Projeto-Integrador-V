@@ -14,9 +14,10 @@
 
 .title{
     color: rgb(202, 107, 250) ;
+    text-align: center;
 }
 .subtitle{
-    margin: 5%;
+    text-align: center;
 }
 
 #email{
@@ -34,4 +35,8 @@
 #botao_criar{
     width: 35%;
     background-color: rgb(202, 107, 250);
+}
+
+.field{
+    margin-left: 41%;
 }

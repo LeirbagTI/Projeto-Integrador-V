@@ -18,9 +18,10 @@
 
 .title{
     color: rgb(202, 107, 250) ;
+    text-align: center;
 }
 .subtitle{
-    margin: 10%;
+    text-align: center;
 }
 
 #email{
@@ -40,9 +41,6 @@
     background-color: rgb(202, 107, 250);
 }
 
-#login_style{
-    margin-left: 50px;
-    padding-top: 20px;
-    padding-left: 20px;
-    padding-bottom: 20px;
+.field{
+    margin-left: 40%;
 }
