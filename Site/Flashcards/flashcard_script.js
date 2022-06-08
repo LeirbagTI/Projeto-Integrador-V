@@ -1,72 +1,60 @@
-var contentArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
+const flashcards = document.getElementsByClassName("flashcards")[0];
+const criarCaixa = document.getElementsByClassName("criar-caixa")[0];
+const pergunta = document.getElementById("pergunta");
+const resposta = document.getElementById("resposta");
+let conteudoArray = localStorage.getItem('items') ? 
+JSON.parse(localStorage.getItem('items')) : [];
 
-document.getElementById("salvar_cartao").addEventListener("click", () => {
-  addFlashcard();
-});
+conteudoArray.forEach(fazDiv); /*Cria uma array pra cada flashcard*/
+function fazDiv(text){
+    var div = document.createElement("div");
+    var h2_pergunta = document.createElement("h2");
+    var h2_resposta = document.createElement("h2");
 
-document.getElementById("deletar_cartao").addEventListener("click", () => {
-  localStorage.clear();
-  flashcards.innerHTML = '';
-  contentArray = [];
-});
+    div.className = 'flashcard';
 
-document.getElementById("mostrar_caixa_cartao").addEventListener("click", () => {
-  document.getElementById("criar_cartao").style.display = "block";
-});
+    h2_pergunta.setAttribute('style', "border-top: 1px solid red; padding: 15px; margin-top:30px");
+    h2_pergunta.innerHTML = text.minha_pergunta;
 
-document.getElementById("fechar_caixa_cartao").addEventListener("click", () => {
-  document.getElementById("criar_cartao").style.display = "none";
-});
+    h2_resposta.setAttribute('style', 'text-align: center; display: none; color: red');
+    h2_resposta.innerHTML = text.minha_resposta;
 
-flashcardMaker = (text, delThisIndex) => {
-  const flashcard = document.createElement("div");
-  const question = document.createElement('h2');
-  const answer = document.createElement('h2');
-  const del = document.createElement('i');
+    div.appendChild(h2_pergunta);
+    div.appendChild(h2_resposta);
 
-  flashcard.className = 'flashcard';
+    div.addEventListener("click", function(){
+        if(h2_resposta.style.display == "none") 
+        h2_resposta.style.display == "block"
+        
+        else 
+        h2_pergunta.style.display == "none";
+    });
 
-  question.setAttribute("style", "border-top:1px solid red; padding: 15px; margin-top:30px");
-  question.textContent = text.my_question;
-
-  answer.setAttribute("style", "text-align:center; display:none; color:red");
-  answer.textContent = text.my_answer;
-
-  del.className = "fas fa-minus";
-  del.addEventListener("click", () => {
-    contentArray.splice(delThisIndex, 1);
-    localStorage.setItem('items', JSON.stringify(contentArray));
-    window.location.reload();
-  })
-
-  flashcard.appendChild(question);
-  flashcard.appendChild(answer);
-  flashcard.appendChild(del);
-
-  flashcard.addEventListener("click", () => {
-    if(answer.style.display == "none")
-      answer.style.display = "block";
-    else
-      answer.style.display = "none";
-  })
-
-  document.querySelector("#flashcards").appendChild(flashcard);
+    flashcards.appendChild(div);
 }
 
-contentArray.forEach(flashcardMaker);
+function AddFlashcard(){
+    var flashcard_conteudo = {
+        'minha_pergunta' : pergunta.value,
+        'minha_resposta' : resposta.value
+    }
+    conteudoArray.push(flashcard_conteudo)
+    localStorage.setItem('items', JSON.stringify (conteudoArray));
+    fazDiv(conteudoArray[conteudoArray.length -1]);
+    pergunta.value = '';
+    resposta.value = '';
+} 
 
-addFlashcard = () => {
-  const question = document.querySelector("#question");
-  const answer = document.querySelector("#answer");
+function delCartao(){
+    localStorage.clear();
+    flashcards.innerHTML = '';
+    conteudoArray = [];
+}
 
-  let flashcard_info = {
-    'my_question': question.value,
-    'my_answer': answer.value
-  }
+function CriarCartao(){ /* Abre a caixa de flashcard*/
+    criarCaixa.style.display = "block";
+}
 
-  contentArray.push(flashcard_info);
-  localStorage.setItem('items', JSON.stringify(contentArray));
-  flashcardMaker(contentArray[contentArray.length - 1], contentArray.length - 1);
-  question.value = "";
-  answer.value = "";
+function esconderCartao(){ /* Esconde a caixa de flashcard*/
+    criarCaixa.style.display = "none"
 }

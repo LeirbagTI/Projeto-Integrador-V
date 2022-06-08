@@ -38,25 +38,13 @@ body{
 
 #email{
     width: 100%;
-   margin-left: -4rem;
 }
 
 #senha{
     width: 100%;
-    margin-left: -4rem;
 }
 
-#botao_login{
-    width: 100%;
-    background-color: rgb(51, 180, 255);
-    margin-left: -4rem;
-}
 #botao_criar{
     width: 100%;
     background-color: rgb(51, 180, 255);
-    margin-left: -4rem;
-}
-
-.field{
-    margin-left: 41%;
 }
