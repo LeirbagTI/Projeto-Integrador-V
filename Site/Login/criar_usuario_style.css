@@ -48,3 +48,13 @@ body{
     width: 100%;
     background-color: rgb(51, 180, 255);
 }
+
+@media(max-width: 1030px){
+	.login-box{
+		margin:auto;
+	}
+
+	.picture{
+		display:none;
+	}
+}
