@@ -1,113 +1,167 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
 *{
-    padding: 0;
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 body{
     font-family: 'Nunito', sans-serif;
     font-size: 1rem;
-    background-color: whitesmoke;
+    background: whitesmoke;
+}
+
+.container{
+    width: 1280px;
+    margin: auto;
 }
 
 header{
-    background-color: white;
+    background-color: #fff;
 }
 
+#header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 70px;
+    padding: 0 20px;
+    background: #fff;
+}
+
+
+/*BOTÕES*/
 button{
     padding: 8px;
     outline: none;
     cursor: pointer;
     border: 1px solid lightgray;
     border-radius: 5px;
-    background-color: whitesmoke;
+    background: whitesmoke;
 }
 
 button:hover{
     background-color: rgba(0, 0, 0, 0.1);
 }
 
-.container{
-    width: 95%;
-    margin: auto;
-}
-
-.nav{
-    display: flex;
-    justify-content: space-between;
-    width: 100% ;
-    margin: auto;
-    padding: 20px 0;
-    background-color: white;
-
-}
-
-.nav button{
+#header button{
     font-family: inherit;
+    border: 3px solid rgb(51, 180, 255);
 }
 
-.criar-caixa{
-    width: 380px;
-    margin: auto;
+#salvar_flashcard{
+    border: 1px solid rgb(51, 180, 255);
+}
+#fechar_flashcard{
+    border: 1px solid rgb(51, 180, 255);
+}
+
+
+/*CRIAR FLASHCARD*/
+#criar_flashcard{
+    display: none;
+    width: 370px;
+    margin:auto;
     padding: 20px;
     margin-top: 10px;
-    border-radius: 5px;
-    background-color: whitesmoke;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    background: whitesmoke;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.9);
 }
 
-.criar-caixa textarea{
+#criar_flashcard h2{
+    color: black;
+    text-align: center;
+}
+
+#criar_flashcard textarea{
     width: 100%;
     border-radius: 5px;
     font-family: inherit;
-    border: 1px solid lightgrey;
+    border: 1px solid lightgray;
+    resize: none;
 }
 
-.criar-caixa button{
+#criar_caixa button{
     width: fit-content;
 }
 
-.flashcards{
+#mostrar_caixa{
+    margin-left: 550px;
+}
+
+/*FLASHCARD(S)*/
+#flashcards{
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     width: 100%;
     margin: auto;
     margin-top: 10px;
-    padding: 0 10px;
+    padding: 0px 10px;
 }
 
 .flashcard{
     width: 370px;
     height: 200px;
     word-wrap: break-word;
-    margin: 10px;
-    background-color: white;
-    box-shadow: 0 2px 4px - rgba(0, 0, 0, 0.5);
+    margin: 10px; 
+    background:#fff;
+    cursor: pointer;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.9);
+    position: relative;
 }
 
 .flashcard h2{
     font-size: 1rem;
 }
 
-@media(max-width: 768px){/*PC*/
-    .flashcard{ /* Faz com que o flashcard fique no meio da página quando redimensionada */
+/*FONTES*/
+.fa-minus{
+    top: 3%;
+    right: 2%;
+    position: absolute;
+    color: #1a1a1a;
+    transition: 0.3s ease-out;
+}
+
+.fa-minus:hover{
+    color: red;
+}
+
+/*CELUALRES*/
+@media(max-width:1280px){
+    .container{
+        width: 100%;
+    }
+}
+
+@media(max-width:768px){
+    .flashcard{
         margin: auto;
     }
+
     .flashcard{
         margin-top: 10px;
         margin-bottom: 10px;
     }
 }
 
-@media(max-width: 460px){ /*SMARTPHONE*/
-    .criar-caixa{ /* Faz com que o flashcard fique no meio da página quando redimensionada */
-        width: 100%;
+@media(max-width:480px){
+    #header{
+        padding: 20px;
+        gap: 10px;
+        flex-direction: column;
+        align-items: center;
     }
+
+    #criar_flashcard{
+        width: 95%;
+    }
+
     .flashcard{
         width: 100%;
     }
+
 }

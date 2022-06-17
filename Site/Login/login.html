@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    
+    <script defer src=""></script>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+    <link rel="stylesheet" href="login_style.css">
+    <script src="login_script.js"></script>
+
+    <link rel="shortcut icon" href="../../Icones/favicon.ico" type="image/x-icon">
+
+</head>
+<body>
+<!-- BARRA DE NAVEGAÇÃO -->
+    <nav id="em_cima" class="navbar is-danger" role="navigation" aria-label="main navigation" style="background-color: rgb(51, 180, 255);">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="principal.html">
+                <img src="../../Icones/favicon.ico" alt="" width="40" height="28">
+                <h5 class="nome_site">MemoryCard</h5>
+            </a>
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+    </nav>
+
+<!-- FIM DA BARRA DE NAVEGAÇÃO-->
+	<div class="picture">
+	<img src="../../imagens/homem-segurando-livro.png" alt="" width="450" height="200">
+	</div>
+	
+    <div class="login-box">
+        <section class="section">
+            <div class="container">
+                <p id="titulo" class="title">Seja Bem-Vindo(a)</p>
+                <p class="subtitle">Ao Site de Aprendizado</p>
+                <br>
+            </div>
+    
+<!-- CÓDIGO DE FORMULÁRIO -->
+
+    <div class="field">
+        <label class="label">E-mail</label>
+        <div class="control">
+            <input id="email" class="input" type="email" placeholder="Ex: josesilva@gmail.com">
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label">Senha</label>
+        <p class="control">
+            <input id="senha" class="input" type="password" placeholder="Digite Sua Senha Aqui">
+        </p>
+    </div>
+
+    <div class="field">
+        <p class="control">
+        <a href="../Flashcards/flashcard_index.html">
+            <button id="botao_login" class="button is-success">
+                Login
+            </button>
+        </a>
+        </p>
+    </div>
+
+        <div class="field">
+            <p class="control">
+                <a href="Site/Login/criar_usuario.html">
+                    <button id="botao_login" type="button" class="button is-success">
+                    Criar uma Conta
+                    </button>
+                </a>
+            </p>
+        </div>
+
+    </div>
+
+    
+<!-- FIM DO CÓDIGO DE FORMULÁRIO-->
+
+    </section>
+
+<!-- FOOTER -->
+
+</body>
+</html>

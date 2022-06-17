@@ -1,60 +1,72 @@
-const flashcards = document.getElementsByClassName("flashcards")[0];
-const criarCaixa = document.getElementsByClassName("criar-caixa")[0];
-const pergunta = document.getElementById("pergunta");
-const resposta = document.getElementById("resposta");
-let conteudoArray = localStorage.getItem('items') ? 
-JSON.parse(localStorage.getItem('items')) : [];
+var contentArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
 
-conteudoArray.forEach(fazDiv); /*Cria uma array pra cada flashcard*/
-function fazDiv(text){
-    var div = document.createElement("div");
-    var h2_pergunta = document.createElement("h2");
-    var h2_resposta = document.createElement("h2");
+document.getElementById("salvar_flashcard").addEventListener("click", () => {
+  addFlashcard();
+});
 
-    div.className = 'flashcard';
+document.getElementById("deletar_flashcard").addEventListener("click", () => {
+  localStorage.clear();
+  flashcards.innerHTML = '';
+  contentArray = [];
+});
 
-    h2_pergunta.setAttribute('style', "border-top: 1px solid red; padding: 15px; margin-top:30px");
-    h2_pergunta.innerHTML = text.minha_pergunta;
+document.getElementById("mostrar_caixa").addEventListener("click", () => {
+  document.getElementById("criar_flashcard").style.display = "block";
+});
 
-    h2_resposta.setAttribute('style', 'text-align: center; display: none; color: red');
-    h2_resposta.innerHTML = text.minha_resposta;
+document.getElementById("fechar_flashcard").addEventListener("click", () => {
+  document.getElementById("criar_flashcard").style.display = "none";
+});
 
-    div.appendChild(h2_pergunta);
-    div.appendChild(h2_resposta);
+FazerFlashcard = (text, delThisIndex) => {
+  const flashcard = document.createElement("div");
+  const question = document.createElement('h2');
+  const answer = document.createElement('h2');
+  const del = document.createElement('i');
 
-    div.addEventListener("click", function(){
-        if(h2_resposta.style.display == "none") 
-        h2_resposta.style.display == "block"
-        
-        else 
-        h2_pergunta.style.display == "none";
-    });
+  flashcard.className = 'flashcard';
 
-    flashcards.appendChild(div);
+  question.setAttribute("style", "border-top:1px solid red; padding: 15px; margin-top:30px");
+  question.textContent = text.minha_pergunta;
+
+  answer.setAttribute("style", "text-align:center; display:none; color:red");
+  answer.textContent = text.minha_resposta;
+
+  del.className = "fas fa-minus";
+  del.addEventListener("click", () => {
+    contentArray.splice(delThisIndex, 1);
+    localStorage.setItem('items', JSON.stringify(contentArray));
+    window.location.reload();
+  })
+
+  flashcard.appendChild(question);
+  flashcard.appendChild(answer);
+  flashcard.appendChild(del);
+
+  flashcard.addEventListener("click", () => {
+    if(answer.style.display == "none")
+      answer.style.display = "block";
+    else
+      answer.style.display = "none";
+  })
+
+  document.querySelector("#flashcards").appendChild(flashcard);
 }
 
-function AddFlashcard(){
-    var flashcard_conteudo = {
-        'minha_pergunta' : pergunta.value,
-        'minha_resposta' : resposta.value
-    }
-    conteudoArray.push(flashcard_conteudo)
-    localStorage.setItem('items', JSON.stringify (conteudoArray));
-    fazDiv(conteudoArray[conteudoArray.length -1]);
-    pergunta.value = '';
-    resposta.value = '';
-} 
+contentArray.forEach(FazerFlashcard);
 
-function delCartao(){
-    localStorage.clear();
-    flashcards.innerHTML = '';
-    conteudoArray = [];
-}
+addFlashcard = () => {
+  const question = document.querySelector("#question");
+  const answer = document.querySelector("#answer");
 
-function CriarCartao(){ /* Abre a caixa de flashcard*/
-    criarCaixa.style.display = "block";
-}
+  let flashcard_info = {
+    'minha_pergunta' : question.value,
+    'minha_resposta'  : answer.value
+  }
 
-function esconderCartao(){ /* Esconde a caixa de flashcard*/
-    criarCaixa.style.display = "none"
+  contentArray.push(flashcard_info);
+  localStorage.setItem('items', JSON.stringify(contentArray));
+  FazerFlashcard(contentArray[contentArray.length - 1], contentArray.length - 1);
+  question.value = "";
+  answer.value = "";
 }

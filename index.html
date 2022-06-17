@@ -4,88 +4,61 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    
-    <script defer src=""></script>
-    
+    <title>Bem Vindo</title>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-
-    <link rel="stylesheet" href="Site/Login/login_style.css">
-    <script src="Site/Login/login_script.js"></script>
-
-    <link rel="shortcut icon" href="Icones/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="index.css">
 
 </head>
 <body>
-<!-- BARRA DE NAVEGAÇÃO -->
+    <!-- BARRA DE NAVEGAÇÃO -->
     <nav id="em_cima" class="navbar is-danger" role="navigation" aria-label="main navigation" style="background-color: rgb(51, 180, 255);">
         <div class="navbar-brand">
-          <a class="navbar-item" href="">
-            <img src="imagens/flash-cards.png" alt="" width="40" height="28">
-             <h5 class="nome_site">MemoryCard</h5>
-          </a>
-      
-          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-            <span aria-hidden="true"></span>
-          </a>
+            <a class="navbar-item" href="principal.html">
+                <img src="../../Icones/favicon.ico" alt="" width="40" height="28">
+                <h5 class="nome_site" style="color: black;">MemoryCard</h5>
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+            </a>
         </div>
-      </nav>
-<!-- FIM DA BARRA DE NAVEGAÇÃO-->
-	<div class="picture">
-	<img src="./imagens/homem-segurando-livro.png" alt="" width="450" height="200">
-	</div>
-	
-   <div class="login-box">
-    <section class="section">
-        <div class="container">
-        <p id="titulo" class="title">Seja Bem-Vindo(a)</p>
-        <p class="subtitle">Ao Site de Aprendizado</p>
-        <p></p>
+
+        <div>
+            <a href="Site/Login/login.html">
+                <button id="botao-login" class="button is-light is-rounded">Login</button>
+            </a>
         </div>
-    
-<!-- CÓDIGO DE FORMULÁRIO -->
 
-    <div class="field">
-        <label class="label">E-mail</label>
-        <div class="control">
-        <input id="email" class="input" type="email" placeholder="Ex: josesilva@gmail.com">
+        <div>
+            <a href="Site/Login/criar_usuario.html">
+                <button id="botao-criar" class="button is-light is-rounded">Criar Usuário</button>
+            </a>
         </div>
-    </div>
-
-    <div class="field">
-        <label class="label">Senha</label>
-        <p class="control">
-        <input id="senha" class="input" type="password" placeholder="Digite Sua Senha Aqui">
-        </p>
-    </div>
-
-    <div class="field">
-        <p class="control">
-        <a href="Site/Flashcards/flashcard_index.html">
-            <button id="botao_login" class="button is-success">
-                Login
-            </button>
-        </a>
-        </p>
-    </div>
-
-    <div class="field">
-        <p class="control">
-        <a href="Site/Login/criar_usuario.html">
-            <button id="botao_login" type="button" class="button is-success">
-                Criar uma Conta
-            </button>
-        </a>
-        </p>
-    </div>
-   </div>
 
     
-<!-- FIM DO CÓDIGO DE FORMULÁRIO-->
+        
 
+    </nav>
+    <!-- FIM DA BARRA DE NAVEGAÇÃO-->
+
+    <!-- Escrituras sobre o que é flashcard -->
+    
+    <section id="what_flashcard">
+        <br>
+        <h1 class="title">O que é Flashcard?</h1>
+        <p class="subtitle">Flashcard é um método espaçado de estudo. São cartões que servem para testar sua memória. Esses cartões possuem uma frente e um verso, em uma face do cartão você escreverá uma pergunta e no seu verso a resposta.</p>
     </section>
+    <br>
+    
+    <section>
+        <h1 class="title">Como fazer um flashcard neste site?</h1>
+        <p></p>
+    </section>
+    <br>
 
-<!-- FOOTER -->
+
+
+
 
 </body>
 </html>

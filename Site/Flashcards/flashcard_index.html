@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Flashcards</title>
   <link rel="shortcut icon" href="../../Icones/favicon.ico" type="image/x-icon">
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   <link rel="stylesheet" href="flashcard_index.css">
   
 
@@ -15,8 +15,8 @@
   <!-- BARRA DE NAVEGAÇÃO -->
   <nav id="em_cima" class="navbar is-danger" role="navigation" aria-label="main navigation" style="background-color: rgb(51, 180, 255);">
     <div class="navbar-brand">
-    <a class="navbar-item" href="">
-        <img src="../../imagens/flash-cards.png" alt="" width="40" height="28">
+    <a class="navbar-item" href="../../index.html">
+        <img src="../../Icones/favicon.ico" alt="" width="40" height="28">
         <h5 class="nome_site" style="color:black">MemoryCard</h5>
     </a>
 
@@ -28,33 +28,51 @@
     </div>
 </nav>
   
-  <header>
-    <div class="container">
-      <div class="nav">
-        <h1>Flashcards</h1>
-        <div>
-          <button onclick="CriarCartao()">Adicionar Flashcard</button>
-          <button onclick="delCartao()">Deletar Flashcard</button>
-        </div>
-      </div>
-    </div>
-  </header>
-
+<header>
   <div class="container">
-    <div class="criar-caixa">
-      <h2 style="text-align: center;">Criar Flashcard</h2>
-      <label for="pergunta">Pergunta</label>
-      <textarea id="pergunta" style="resize: none"></textarea>
-      <br>
-      <label for="resposta">Resposta</label>
-      <textarea id="resposta" style="resize: none"></textarea>
+    <div id="header">
       <div>
-        <button onclick="addFlashcard()">Salvar</button>
-        <button onclick="esconderCartao()">Fechar</button>
+
+        <button id="mostrar_caixa">
+          <strong>Add Card</strong>
+        </button>
+
+        <button id="deletar_flashcard">
+          <strong>Del Cards</strong>
+        </button>
+
       </div>
     </div>
-    <div class="flashcards"></div>
   </div>
+</header>
+
+<section>
+  <div class="container">
+    <div id="criar_flashcard">
+
+      <h2>Criar Flashcard</h2>
+      <label for="question">Pergunta</label>
+      <textarea id="question" maxlength="280"></textarea>
+
+      <label for="answer" maxlength="280">Resposta</label>
+      <br>
+      <textarea id="answer"></textarea>
+
+      <div>
+
+        <button id="salvar_flashcard">Salvar</button>
+        <button id="fechar_flashcard">Fechar</button>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div id="flashcards"></div>
+  </div>
+</section>
 
   <script src="flashcard_script.js"></script>
 </body>

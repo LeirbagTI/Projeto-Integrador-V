@@ -1,0 +1,19 @@
+.title{
+    font-size: 45px;
+    text-align: center;
+}
+
+.subtitle{
+    font-size: 20px;
+    text-align: center;
+}
+
+#botao-login{
+    margin-top: 4px;
+    margin-left: 1160px;
+}
+
+#botao-criar{
+    margin-top: 4px;
+    margin-left: 15px;
+}
