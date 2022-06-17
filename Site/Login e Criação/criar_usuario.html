@@ -5,22 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Criar Usuário</title>
-    
-    <script defer src=""></script>
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="criar_usuario_style.css">
-    <script src="criar_usuario_script.js"></script>
-    
     <link rel="shortcut icon" href="../../Icones/favicon.ico" type="image/x-icon">
+
 
 </head>
 <body>
 <!-- BARRA DE NAVEGAÇÃO -->
     <nav id="em_cima" class="navbar is-danger" role="navigation" aria-label="main navigation" style="background-color: rgb(51, 180, 255);">
         <div class="navbar-brand">
-          <a class="navbar-item" href="../../principal.html">
+          <a class="navbar-item" href="../../index.html">
             <img src="../../Icones/favicon.ico" alt="" width="40" height="28">
              <h5 class="nome_site">MemoryCard</h5>
           </a>
@@ -33,6 +29,8 @@
         </div>
       </nav>
 <!-- FIM DA BARRA DE NAVEGAÇÃO-->
+
+
 	<div class="picture">
 	<img src="../../imagens/homem-segurando-livro.png" alt="" width="450" height="200">
 	</div>
@@ -44,7 +42,7 @@
           <p class="subtitle">No Site de Aprendizado</p>
           <br>
         </div>
-    
+
 <!-- CÓDIGO DE FORMULÁRIO -->
 <!-- FORMULÁRIO PARA CRIAR UMA CONTA NO SITE-->
     <div class="field">
@@ -57,19 +55,19 @@
     <div class="field">
       <label class="label">Senha</label>
       <p class="control">
-      <input id="senha" class="input" type="password" placeholder="De 8 a 32 caracteres">
+      <input id="senha1" class="input" type="password" placeholder="Digite Sua Senha Aqui">
       </p>
     </div>
 
     <div class="field">
       <p class="control">
-      <input id="senha" class="input" type="password" placeholder="Digite a Senha Novamente">
+      <input id="senha2" class="input" type="password" placeholder="Digite a Senha Novamente">
       </p>
     </div>
 
     <div class="field">
       <div class="control">
-        <a href="../Flashcards/flashcard_index.html">
+        <a>
           <button id="botao_criar" class="button is-link">Criar Conta</button>
         </a>
       </div>
@@ -77,8 +75,8 @@
     </div>
 <!-- FIM DO CÓDIGO DE FORMULÁRIO-->
 
-    </section>
-<!-- FOOTER -->
+<script src="post_method.js" defer></script>
+<script src="criar_usuario_script.js" defer></script>
 
 </body>
 </html>

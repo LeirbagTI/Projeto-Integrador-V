@@ -127,7 +127,7 @@ button:hover{
 }
 
 .fa-minus:hover{
-    color: red;
+    color: rgb(51, 180, 255);
 }
 
 /*CELUALRES*/
@@ -163,5 +163,8 @@ button:hover{
     .flashcard{
         width: 100%;
     }
+}
 
+#salvar_flashcard{
+    margin-left: 110px;
 }
