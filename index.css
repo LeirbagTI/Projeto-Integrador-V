@@ -10,10 +10,18 @@
 
 #botao-login{
     margin-top: 4px;
-    margin-left: 1160px;
+    left: 55rem;
 }
 
 #botao-criar{
     margin-top: 4px;
-    margin-left: 15px;
+    left: 55rem;
 }
+
+@media(max-width: 1200px){
+    #botao-login, #botao-criar{
+        left:auto;
+        margin-left:1px;
+    }
+}
+
