@@ -14,7 +14,8 @@ async function register(){
 
         let datas = {
             email : emailValue,
-            password : senha1Value
+            password : senha1Value,
+            cargo : 'professor'
         };
 
         let tokens = await postMethod(datas, "user/register");

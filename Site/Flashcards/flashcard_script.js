@@ -1,6 +1,27 @@
 var contentArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
 
-document.getElementById("salvar_flashcard").addEventListener("click", () => {
+document.getElementById("salvar_flashcard").addEventListener("click", async () => {
+  let datas = {
+    titulo : "memorycard"
+  };
+  let id_questionario = await postMethod(datas, "quiz/quiz");
+  
+  let dataQuestao = {
+    idquestionario : id_questionario.idQuestionario.rows[0].id,
+    enunciado : document.querySelector('#question').value
+  };
+
+  let id_questao = await postMethod(dataQuestao, "quiz/questao");
+
+  let data_alternativa = {
+    idquestao : id_questao.idQuestao.rows[0].id,
+    alternativa : [{
+      texto : document.querySelector("#answer").value,
+      correta : true
+    }]
+  };
+  let alternativa = await postMethod(data_alternativa, "quiz/alternativa");
+
   addFlashcard();
 });
 
@@ -57,7 +78,7 @@ contentArray.forEach(FazerFlashcard);
 
 addFlashcard = () => {
   const question = document.querySelector("#question");
-  const answer = document.querySelector("#answer");
+  const answer = document.querySelector("#answer");  
 
   let flashcard_info = {
     'minha_pergunta' : question.value,
@@ -70,3 +91,46 @@ addFlashcard = () => {
   question.value = "";
   answer.value = "";
 }
+
+put_flashcard = async () => {
+  let data = {
+    idprofessor : 13
+  }
+  let amor = await putMethod(data, "quiz/quiz")
+
+  let indignacao = []
+
+  for (const questionario in amor.questionarios){
+    let data_questoes = {
+      idquestionario : amor.questionarios[questionario].id
+    };
+
+    let odio = await putMethod(data_questoes, "quiz/questao");
+
+    if(odio.questoes[0]){
+      indignacao.push({
+        enunciado : odio.questoes[0]?.enunciado,
+        idquestao : odio.questoes[0]?.id
+      });
+    }
+  }
+
+  for (const card in indignacao) {
+    let data_alternativa = {
+      idquestao : indignacao[card].idquestao
+    }
+    
+    let pegar_resposta = await putMethod(data_alternativa, "quiz/alternativa");
+
+    if(pegar_resposta.alternativas[0]){
+      if(indignacao[card].idquestao == pegar_resposta.alternativas[0]?.idquestao){
+        indignacao[card].resposta = pegar_resposta.alternativas[0].texto
+      }
+    }
+  }
+
+  console.log();
+
+}
+
+put_flashcard();
