@@ -14,7 +14,7 @@ async function login(){
             return;
         }
 
-        let tokens = await postMethod(datas, "user/login");
+        let tokens = await request(datas, "user/login", 'POST');
 
         sessionStorage.setItem("accessToken", tokens.accessToken);
         sessionStorage.setItem("refreshToken", tokens.refreshToken);

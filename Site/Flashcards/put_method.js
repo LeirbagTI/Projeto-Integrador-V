@@ -1,7 +1,7 @@
-async function putMethod(data, lastUrl){
+async function request(data, lastUrl, method){
     const url = 'https://bd-pie5-unifagoc.herokuapp.com/api/v1/' + lastUrl
     const response = await fetch(url, {
-        method: 'PUT', 
+        method: method,
         headers: {
             'Authorization' : 'Bearer ' + sessionStorage.getItem('accessToken'),
             'Accept' : '/',

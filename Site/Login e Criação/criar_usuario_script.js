@@ -18,7 +18,7 @@ async function register(){
             cargo : 'professor'
         };
 
-        let tokens = await postMethod(datas, "user/register");
+        let tokens = await request(datas, "user/register", 'POST');
         console.log(tokens);
 
         sessionStorage.setItem("accessToken", tokens.accessToken);

@@ -104,6 +104,7 @@ button:hover{
 
 .flashcard{
     width: 370px;
+    min-width: fit-content;
     height: 200px;
     word-wrap: break-word;
     margin: 10px; 
@@ -167,4 +168,8 @@ button:hover{
 
 #salvar_flashcard{
     margin-left: 110px;
+}
+
+#mostrar_caixa{
+    margin-left: 480px;
 }
