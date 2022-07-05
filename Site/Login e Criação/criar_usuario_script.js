@@ -21,8 +21,8 @@ async function register(){
         let tokens = await request(datas, "user/register", 'POST');
         console.log(tokens);
 
-        sessionStorage.setItem("accessToken", tokens.accessToken);
-        sessionStorage.setItem("refreshToken", tokens.refreshToken);
+        sessionStorage.setItem("accessToken", tokens.tokens.accessToken);
+        sessionStorage.setItem("refreshToken", tokens.tokens.refreshToken);
 
         let verify = sessionStorage.getItem("accessToken");
         if(verify == "undefined"){

@@ -22,11 +22,6 @@ document.getElementById("salvar_flashcard").addEventListener("click", async () =
   addFlashcard();
 });
 
-document.getElementById("deletar_flashcard").addEventListener("click", () => {
-  localStorage.clear();
-  flashcards.innerHTML = '';
-});
-
 document.getElementById("mostrar_caixa").addEventListener("click", () => {
   document.getElementById("criar_flashcard").style.display = "block";
 });
@@ -90,7 +85,7 @@ addFlashcard = () => {
 
 put_flashcard = async () => {
   let data = {
-    idprofessor : 4
+    
   }
   let amor = await request(data, "quiz/quiz", 'PUT')
   let indignacao = []
@@ -111,7 +106,6 @@ put_flashcard = async () => {
     }
   }
 
-  console.log(indignacao);
   for (const card in indignacao) {
     let data_alternativa = {
       idquestao : indignacao[card].idquestao
@@ -128,7 +122,6 @@ put_flashcard = async () => {
 
   for (const i in indignacao) {
     FazerFlashcard(indignacao[i], i);
-    console.log(indignacao[i]);
   }
 }
 
@@ -140,5 +133,4 @@ deletar_flashcard = async (flashcard) =>{
     idquestionario : flashcard.id_questionario
   }
   let deletar = await request(data, 'quiz/questao', 'DELETE');
-  console.log(flashcard);
 }

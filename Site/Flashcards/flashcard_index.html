@@ -37,10 +37,7 @@
           <strong>Adicionar Flashcard</strong>
         </button>
 
-        <button id="deletar_flashcard">
-          <strong>Deletar Flashcards</strong>
-        </button>
-
+       
       </div>
     </div>
   </div>
@@ -51,16 +48,20 @@
     <div id="criar_flashcard">
 
       <h2><strong>Criar Flashcard</strong></h2>
-      <label for="question">Pergunta:</label>
+      <label for="question"><strong>Pergunta:</strong></label>
       <textarea id="question" maxlength="280"></textarea>
 
-      <label for="answer" maxlength="280">Resposta:</label>
+      <label for="answer" maxlength="280"><strong>Resposta:</strong></label>
+      <br>
+      <textarea id="answer"></textarea>
+
+      <label for="answer" maxlength="280"><strong>Tema:</strong></label>
       <br>
       <textarea id="answer"></textarea>
 
       <div class="centro">
-        <button id="salvar_flashcard">Salvar</button>
-        <button id="fechar_flashcard">Fechar</button>
+        <button id="salvar_flashcard"><strong>Salvar</strong></button>
+        <button id="fechar_flashcard"><strong>Fechar</strong></button>
       </div>
 
     </div>
@@ -74,7 +75,7 @@
 </section>
 
   <script src="flashcard_script.js" defer></script>
-  <script src="put_method.js"></script>
+  <script src="../../request.js"></script>
 
 </body>
 </html>

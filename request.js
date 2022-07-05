@@ -7,7 +7,17 @@ async function request(data, lastUrl, method){
             'Accept' : '/',
             'Content-Type': 'application/json'
         },
+        credentials : 'same-origin',
         body: JSON.stringify(data)
     })
-    return response.json()
+    //console.log(await response.json());
+    const json = await response.json();
+    if(json.message == 'jwt expired'){
+        let tokens = await request({}, 'user/refresh_token', 'PUT');
+
+        sessionStorage.setItem("accessToken", tokens.accessToken);
+        sessionStorage.setItem("refreshToken", tokens.refreshToken);
+        return
+    }
+    return json;
 }

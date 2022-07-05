@@ -16,8 +16,8 @@ async function login(){
 
         let tokens = await request(datas, "user/login", 'POST');
 
-        sessionStorage.setItem("accessToken", tokens.accessToken);
-        sessionStorage.setItem("refreshToken", tokens.refreshToken);
+        sessionStorage.setItem("accessToken", tokens.tokens.accessToken);
+        sessionStorage.setItem("refreshToken", tokens.tokens.refreshToken);
 
         let verify = sessionStorage.getItem("accessToken");
         if(verify == "undefined"){
