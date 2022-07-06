@@ -3,17 +3,22 @@ async function register(){
     let email = document.querySelector("#email");
     let senha1 = document.querySelector("#senha1");
     let senha2 = document.querySelector("#senha2");
-    let emailValue = email.value;
+    let emailValue = email.value.trim();
     let senha1Value = senha1.value.trim();
     let senha2Value = senha2.value.trim();
     
     if(!(senha1Value == senha2Value)){
-        window.alert('As senhas tem que ser iguais!');
+        window.alert('As senhas devem ser iguais!');
         return;
     }
 
     if(senha1Value == '' || senha2Value == ''){
-        window.alert('As senhas estão em branco!');
+        window.alert('Por favor, coloque uma senha!');
+        return;
+    }
+
+    if(emailValue == ''){
+        window.alert('Por favor, coloque um email válido');
         return;
     }
     
@@ -25,10 +30,10 @@ async function register(){
 
     let tokens = await request(datas, "user/register", 'POST');
     if(tokens.message == "duplicate key value violates unique constraint \"account_email_key\""){
-        window.alert('Este email já existe!');
+        window.alert('Este email já existe. Por favor, adicione um email válido!');
         return;
     }
-    
+
     sessionStorage.setItem("accessToken", tokens.tokens.accessToken);
     sessionStorage.setItem("refreshToken", tokens.tokens.refreshToken);
 
