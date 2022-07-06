@@ -1,5 +1,3 @@
-var contentArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
-
 document.getElementById("salvar_flashcard").addEventListener("click", async () => {
   let datas = {
     titulo : "memorycard"

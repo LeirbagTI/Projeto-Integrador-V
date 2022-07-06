@@ -6,21 +6,62 @@
 .subtitle{
     font-size: 20px;
     text-align: center;
+    
 }
 
 #botao-login{
-    margin-top: 4px;
-    left: 69rem;
+    position: absolute;
+    top: 50%;
+    left: 42%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) 
 }
+
 
 #botao-criar{
-    margin-top: 4px;
-    left: 70rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) 
 }
 
-@media(max-width: 1200px){
-    #botao-login, #botao-criar{
-        left:auto;
-        margin-left:1px;
+
+@media screen and (max-width: 1024px) {
+    #botao-login{
+        position: absolute;
+        top: 50%;
+        left: 44%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%) 
     }
+    
+    
+    #botao-criar{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%) 
+    }
+    
+}
+
+@media screen and (max-width: 2000px) {
+    #botao-login{
+        position: absolute;
+        top: 50%;
+        left: 44%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%) 
+    }
+    
+    #botao-criar{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%) 
+    }
+    
 }
