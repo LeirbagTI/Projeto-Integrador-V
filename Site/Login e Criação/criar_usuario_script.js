@@ -18,7 +18,7 @@ async function register(){
     }
 
     if(emailValue == ''){
-        window.alert('Por favor, coloque um email válido');
+        window.alert('Por favor, coloque um email válido!');
         return;
     }
     
