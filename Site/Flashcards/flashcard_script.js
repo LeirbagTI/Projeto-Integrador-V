@@ -1,3 +1,5 @@
+
+// SALVAR O FLASHCARD NO BANCO DE DADOS
 document.getElementById("salvar_flashcard").addEventListener("click", async () => {
   let datas = {
     titulo : "memorycard"
@@ -20,23 +22,29 @@ document.getElementById("salvar_flashcard").addEventListener("click", async () =
   addFlashcard();
 });
 
+// MOSTRAR FLASHCARD NA TELA DO USUÁRIO
 document.getElementById("mostrar_caixa").addEventListener("click", () => {
   document.getElementById("criar_flashcard").style.display = "block";
 });
 
+// FECHAR A TELA DE FLASHCARD NA TELA DO USUÁRIO
 document.getElementById("fechar_flashcard").addEventListener("click", () => {
   document.getElementById("criar_flashcard").style.display = "none";
 });
 
+// ESSA FUNÇÃO FAZ O FLASHCARD
 FazerFlashcard = (text, delThisIndex) => {
+
+// CRIA PELO JAVASCRIPT ELEMENTOS HTML
   const flashcard = document.createElement("div");
   const lixeira = document.createElement("img");
-  const question = document.createElement('h2');
-  const answer = document.createElement('h2');
+  const pergunta = document.createElement('h2');
+  const resposta = document.createElement('h2');
   const del = document.createElement('i');
   
   flashcard.className = 'flashcard';
 
+// CRIA EVENTO DE DELETAR UM FLASHCARD
   lixeira.src = 'https://cdn-icons-png.flaticon.com/512/6932/6932392.png';
   lixeira.setAttribute("style", "width: 25px; margin-left: 5px");
   lixeira.addEventListener("click", async () => {
@@ -44,38 +52,42 @@ FazerFlashcard = (text, delThisIndex) => {
     window.location.reload();
   });
 
-  question.setAttribute("style", "border-top:2px solid blue; margin-top:5px; padding: 15px; text-align:center; font-size: 30px");
-  question.textContent = text.minha_pergunta;
+  pergunta.setAttribute("style", "border-top:2px solid blue; margin-top:5px; padding: 15px; text-align:center; font-size: 30px");
+// COLOCA O CONTEÚDO DA PERGUNTA NO FLASHCARD
+  pergunta.textContent = text.minha_pergunta;
 
-  answer.setAttribute("style", "text-align:center; display:none; font-size:30px ;color:blue");
-  answer.textContent = text.minha_resposta;
+  resposta.setAttribute("style", "text-align:center; display:none; font-size:30px ;color:blue");
+// COLOCA O CONTEÚDO DA RESPOSTA NO FLASHCARD PORÉM ESCONDIDO
+  resposta.textContent = text.minha_resposta;
 
   flashcard.appendChild(lixeira)
-  flashcard.appendChild(question);
-  flashcard.appendChild(answer);
+  flashcard.appendChild(pergunta);
+  flashcard.appendChild(resposta);
   flashcard.appendChild(del);
 
-  question.addEventListener("click", () => {
-    if(answer.style.display == "none")
-      answer.style.display = "block";
+// DEIXA VISÍVEL O CONTEÚDO DA RESPOSTA
+  pergunta.addEventListener("click", () => {
+    if(resposta.style.display == "none")
+      resposta.style.display = "block";
     else
-      answer.style.display = "none";
+      resposta.style.display = "none";
   })
 
   document.querySelector("#flashcards").appendChild(flashcard);
 }
 
+// ADICIONA UM NOVO FLASHCARD
 addFlashcard = () => {
-  const question = document.querySelector("#question");
-  const answer = document.querySelector("#answer");  
+  const pergunta = document.querySelector("#question");
+  const resposta = document.querySelector("#answer");  
 
   let flashcard_info = {
-    'minha_pergunta' : question.value,
-    'minha_resposta'  : answer.value
+    'minha_pergunta' : pergunta.value,
+    'minha_resposta'  : resposta.value
   }
 
-  question.value = "";
-  answer.value = "";
+  pergunta.value = "";
+  resposta.value = "";
   window.location.reload();
 
   put_flashcard();
@@ -85,41 +97,41 @@ put_flashcard = async () => {
   let data = {
     
   }
-  let amor = await request(data, "quiz/quiz", 'PUT')
-  let indignacao = []
+  let getQuestionario = await request(data, "quiz/quiz", 'PUT')
+  let FlashCards = []
 
-  for (const questionario in amor.questionarios){
+  for (const questionario in getQuestionario.questionarios){
     let data_questoes = {
-      idquestionario : amor.questionarios[questionario].id
+      idquestionario : getQuestionario.questionarios[questionario].id
     };
 
-    let odio = await request(data_questoes, "quiz/questao", 'PUT');
+    let questao = await request(data_questoes, "quiz/questao", 'PUT');
 
-    if(odio.questoes[0]){
-      indignacao.push({
-        minha_pergunta : odio.questoes[0]?.enunciado,
-        idquestao : odio.questoes[0]?.id,
-        id_questionario : amor.questionarios[questionario].id
+    if(questao.questoes[0]){
+      FlashCards.push({
+        minha_pergunta : questao.questoes[0]?.enunciado,
+        idquestao : questao.questoes[0]?.id,
+        id_questionario : getQuestionario.questionarios[questionario].id
       });
     }
   }
 
-  for (const card in indignacao) {
+  for (const card in FlashCards) {
     let data_alternativa = {
-      idquestao : indignacao[card].idquestao
+      idquestao : FlashCards[card].idquestao
     }
     
     let pegar_resposta = await request(data_alternativa, "quiz/alternativa", 'PUT');
 
     if(pegar_resposta.alternativas[0]){
-      if(indignacao[card].idquestao == pegar_resposta.alternativas[0]?.idquestao){
-        indignacao[card].minha_resposta = pegar_resposta.alternativas[0].texto
+      if(FlashCards[card].idquestao == pegar_resposta.alternativas[0]?.idquestao){
+        FlashCards[card].minha_resposta = pegar_resposta.alternativas[0].texto
       }
     }
   }
 
-  for (const i in indignacao) {
-    FazerFlashcard(indignacao[i], i);
+  for (const i in FlashCards) {
+    FazerFlashcard(FlashCards[i], i);
   }
 }
 
