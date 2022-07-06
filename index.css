@@ -31,12 +31,11 @@
     #botao-login{
         position: absolute;
         top: 50%;
-        left: 44%;
+        left: 43%;
         margin-right: -50%;
         transform: translate(-50%, -50%) 
     }
-    
-    
+      
     #botao-criar{
         position: absolute;
         top: 50%;
@@ -44,24 +43,4 @@
         margin-right: -50%;
         transform: translate(-50%, -50%) 
     }
-    
-}
-
-@media screen and (max-width: 2000px) {
-    #botao-login{
-        position: absolute;
-        top: 50%;
-        left: 44%;
-        margin-right: -50%;
-        transform: translate(-50%, -50%) 
-    }
-    
-    #botao-criar{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin-right: -50%;
-        transform: translate(-50%, -50%) 
-    }
-    
 }
